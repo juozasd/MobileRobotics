@@ -5,4 +5,3 @@ Using LeJOS to program LEGO NXT brick robot.
 - Button
 - Light Sensor
 - Microphone
-
