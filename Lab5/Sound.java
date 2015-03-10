@@ -7,14 +7,15 @@ public class Sound extends Thread implements Behavior{
 	SoundSensor sound;
 	int loudest = 0;
 	int test = 0; 
+	boolean state = true
 
   	public Sound(){
   		sound = new SoundSensor(SensorPort.S4);
   	}
 
 	public void run(){
-		while (true) {
-			takeControl();
+		while (state) {
+			state = takeControl();
 		}
 	}
 
@@ -38,13 +39,11 @@ public class Sound extends Thread implements Behavior{
 	}
 
 	public boolean takeControl(){
-		
-		if (sound.readValue() > 65){
+		do{
+			LCD.drawString("Listening",0,0);
+		}while(sound.readValue() < 65)
 			action();
-		} else {
-			suppress();
-		}
-		return true;
+		return false;
 	}
 
 

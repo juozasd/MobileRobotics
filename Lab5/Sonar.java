@@ -19,7 +19,7 @@ public class Sonar extends Thread implements Behavior{
 	}	
 	
 	public void run() {
-		while (state) {
+		while (state == true) {
 			state =	takeControl();
 		}
 	}
@@ -46,6 +46,6 @@ public class Sonar extends Thread implements Behavior{
 		} else {
 			suppress();
 		}
-		return true;
+		return false;
 	}
 }

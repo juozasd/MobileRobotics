@@ -6,6 +6,7 @@ import lejos.robotics.subsumption.*;
 public class Light extends Thread implements Behavior{
 
 	LightSensor light;
+	boolean state = true;
 
 	public Light(){
 		light = new LightSensor(SensorPort.S3);
@@ -13,8 +14,8 @@ public class Light extends Thread implements Behavior{
 
 
 	public void run() {
-		while (true) {
-			takeControl();
+		while (state) {
+			state = takeControl();
 		}
 	}
 
@@ -40,6 +41,6 @@ public class Light extends Thread implements Behavior{
 		} else {
 			suppress();
 		}
-		return true;
+		return false;
 	}
 }
