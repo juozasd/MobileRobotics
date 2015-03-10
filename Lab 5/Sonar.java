@@ -45,7 +45,9 @@ public class Sonar extends Thread implements Behavior{
 	}
 
 	public boolean takeControl(){
-		if (sonic.ping() < 25){
+		sonic.ping();
+		Thread.sleep(50);
+		if (sonic.getDistance() < 25){
 			action();
 		} else {
 			suppress();
