@@ -20,7 +20,7 @@ public class Light extends Thread implements Behavior{
 	}
 
 	public void action() {
-		
+
 			Movement m = new Movement();
 			m.forward(1);
 	}
@@ -30,16 +30,13 @@ public class Light extends Thread implements Behavior{
 			Thread.sleep(2000);
 		}
 		catch( InterruptedException e){
-			
+
 		}
 	}
 
-	public boolean takeControl(){
-		
-		if ( light.readValue() > 35){
+	public Boolean takeControl(){
+		while(light.readValue() > 35){
 			action();
-		} else {
-			suppress();
 		}
 		return false;
 	}
