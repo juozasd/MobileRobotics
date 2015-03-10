@@ -28,7 +28,7 @@ public class Sonar extends Thread implements Behavior{
 		try{
 		Movement m = new Movement();
 		m.turnLeft(180);
-		Thread.sleep(1000);
+		Thread.sleep(100);
 		}
 		catch (InterruptedException e){
 			

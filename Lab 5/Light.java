@@ -1,16 +1,45 @@
 import lejos.nxt.*;
 import java.io.*;
+import lejos.robotics.subsumption.*;
 
 
-public class Light{
-  public static void main(String[] args) throws Exception {
-    LightSensor light = new LightSensor(SensorPort.S3);
+public class Light extends Thread implements Behavior{
 
-    while (!Button.ESCAPE.isDown()) {
-      LCD.drawInt(light.getLightValue(), 4, 0, 0);
-      LCD.drawInt(light.getNormalizedLightValue(), 4, 0, 1);
-      LCD.drawInt(SensorPort.S3.readRawValue(), 4, 0, 2);
-      LCD.drawInt(SensorPort.S3.readValue(), 4, 0, 3);
-    }
-  }
+	LightSensor light;
+
+	public Light(){
+		light = new LightSensor(SensorPort.S3);
+	}
+
+
+	public void run() {
+		while (true) {
+			takeControl();
+		}
+	}
+
+	public void action() {
+		
+			Movement m = new Movement();
+			m.forward(1);
+	}
+
+	public void suppress(){
+		try{
+			Thread.sleep(2000);
+		}
+		catch( InterruptedException e){
+			
+		}
+	}
+
+	public boolean takeControl(){
+		
+		if ( light.readValue() > 35){
+			action();
+		} else {
+			suppress();
+		}
+		return true;
+	}
 }

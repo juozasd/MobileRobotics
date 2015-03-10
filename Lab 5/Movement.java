@@ -20,15 +20,14 @@ public class Movement {
    
 
    public Movement(){
-	    pilot.setTravelSpeed(speed);
-		pilot.setRotateSpeed(turnSpeed);
+	  pilot.setTravelSpeed(speed);
+	  pilot.setRotateSpeed(turnSpeed);
 		
    }
    
    public void setWheelDiameter(double wd){
       wheelDiameter = wd;
-	  pilot =
-      new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
+	  pilot =   new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
    }
    public void setTrackWidth(double tw){
       trackWidth = tw;
@@ -59,6 +58,13 @@ public class Movement {
       dist = dist * -1;
       pilot.rotate(dist);
    }
+   public void turn180(){
+      pilot.steer(-50,180,true);
+   }
+   public void turnLeft90(){
+      pilot.steer(-50, -90);
+   }
+
    public void arcLeft(float size, float deg){
       pilot.arc(size,deg);
       while(pilot.isMoving()){}
