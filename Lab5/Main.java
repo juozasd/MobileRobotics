@@ -34,6 +34,9 @@ public class Main{
 		LCD.drawString("Light is Running", 0,0);
 		light.run();
 
+		// Robot waits for two seconds 
+		Thread.sleep(2000);
+
 		LCD.clear();
 		LCD.drawString("Touch is Running", 0,0);
 	   while(touch.isPressed() == false){
