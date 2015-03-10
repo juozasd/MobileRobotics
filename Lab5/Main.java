@@ -29,22 +29,10 @@ public class Main{
 
 		light.run();
 
-	   while(touch.isPressed() == false){
-	      movement.backward(2);
-	   }
+	   	while(touch.isPressed() == false){
+	    	movement.backward(2);
+	   	}
 
 	   sound.run();
-	   
-
-
-
-
-
-
-
-
-   
-   
-   
 	}
 }

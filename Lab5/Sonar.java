@@ -13,26 +13,21 @@ import lejos.robotics.subsumption.*;
 public class Sonar extends Thread implements Behavior{
 
 	private UltrasonicSensor sonic;
-
+	boolean state = true;
 	public Sonar(){
 		sonic = new UltrasonicSensor(SensorPort.S1);
 	}	
 	
 	public void run() {
-		while (true) {
-			takeControl();
+		while (state) {
+			state =	takeControl();
 		}
 	}
 
 	public void action() {
-		try{
 		Movement m = new Movement();
-		m.turnLeft(180);
-		Thread.sleep(100);
-		}
-		catch (InterruptedException e){
-			
-		}
+		m.forward(1);	
+	
 	}
 
 	public void suppress(){
@@ -46,8 +41,7 @@ public class Sonar extends Thread implements Behavior{
 
 	public boolean takeControl(){
 		sonic.ping();
-		
-		if (sonic.getDistance() > 25){
+		if(sonic.getDistance() > 25){
 			action();
 		} else {
 			suppress();
