@@ -17,14 +17,15 @@ public class Movement {
    private double wheelDiameter = 2.25f;
    private double trackWidth = 5.5f;
    public  DifferentialPilot pilot = new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
-   
 
+
+   // Creates an instance of movement 
    public Movement(){
 	  pilot.setTravelSpeed(speed);
 	  pilot.setRotateSpeed(turnSpeed);
-		
+
    }
-   
+
    public void setWheelDiameter(double wd){
       wheelDiameter = wd;
 	  pilot =   new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
@@ -34,6 +35,10 @@ public class Movement {
       pilot =
       new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
    }
+
+   // sets the speed of the Robot using
+   // How many units the Robot moves
+   // The rotation of the wheels per second
    public void setTravelSpeed(float ts){
       pilot.setTravelSpeed(ts);
    }
@@ -42,6 +47,10 @@ public class Movement {
    }
 
    //Movement options
+   // - Forward
+   // - Backward
+   // - Left
+   // - Right
    public void forward(float dist) {
       pilot.travel(dist, true);
       while(pilot.isMoving()){}
@@ -58,13 +67,8 @@ public class Movement {
       dist = dist * -1;
       pilot.rotate(dist);
    }
-   public void turn180(){
-      pilot.steer(-50,180,true);
-   }
-   public void turnLeft90(){
-      pilot.steer(-50, -90);
-   }
 
+   // Makes the Robot Arc in a direction
    public void arcLeft(float size, float deg){
       pilot.arc(size,deg);
       while(pilot.isMoving()){}
@@ -74,6 +78,8 @@ public class Movement {
       pilot.arc(size,deg);
       while(pilot.isMoving()){}
    }
+
+   //Stops the Robot
    public void stop(){
       pilot.stop();
    }
