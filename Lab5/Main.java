@@ -44,7 +44,7 @@ public class Main{
 		LCD.drawString("Sound is Running", 0,0);
 	   sound.run();
 
-		LCD.drawString("Assigment1", 0,0);
+		LCD.drawString("Finished", 0,0);
 		Button.waitForAnyPress();
 		LCD.clear();
 
