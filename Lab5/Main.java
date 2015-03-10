@@ -7,7 +7,7 @@ import java.io.*;
  // clap is about 45 - 50 range
 
 public class Main{
-	
+
 
 	public static void main(String[] args) throws Exception {
 		TouchSensor touch = new TouchSensor(SensorPort.S2);
@@ -21,20 +21,28 @@ public class Main{
 		Button.waitForAnyPress();
 		LCD.clear();
 
+		LCD.drawString("Sonar Running", 0,0);
 		sonar.run();// runs till it a hard surface is detected under 25 cm
 
+		LCD.clear();
+		LCD.drawString("Movement Running", 0,0);
 		movement.turn180();
 		movement.forward(20);
 		movement.turnLeft90();
 
+		LCD.clear();
+		LCD.drawString("Light is Running", 0,0);
 		light.run();
 
+		LCD.clear();
+		LCD.drawString("Touch is Running", 0,0);
 	   while(touch.isPressed() == false){
 	      movement.backward(2);
 	   }
 
+		LCD.clear();
+		LCD.drawString("Soung is Running", 0,0);
 	   sound.run();
-	   
 
 
 
@@ -43,8 +51,9 @@ public class Main{
 
 
 
-   
-   
-   
+
+
+
+
 	}
 }
