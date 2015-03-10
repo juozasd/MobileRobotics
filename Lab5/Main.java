@@ -20,22 +20,23 @@ public class Main{
 		LCD.drawString("Assigment1", 0, 0);
 		Button.waitForAnyPress();
 		LCD.clear();
-
+		Thread.sleep(2000);
 		LCD.drawString("Sonar Running", 0, 0);
 		sonar.run();// runs till it a hard surface is detected under 25 cm
 
 		LCD.clear();
 		LCD.drawString("Movement Running", 0, 0);
-		movement.turnLeft(180);
+		movement.turnLeft(150);
 		movement.forward(20);
 		movement.turnLeft(90);
 
 		LCD.clear();
 		LCD.drawString("Light is Running", 0, 0);
 		light.run();
+		Thread.sleep(2000);
 
 		LCD.clear();
-		LCD.drawString("Robot Stopped", 0, 0)
+		LCD.drawString("Robot Stopped", 0, 0);
 		movement.stop();
 
 		LCD.clear();
