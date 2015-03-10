@@ -40,11 +40,9 @@ public class Sonar extends Thread implements Behavior{
 	}
 
 	public boolean takeControl(){
-		sonic.ping();
-		if(sonic.getDistance() > 25){
+		while(sonic.getDistance() > 25){
+			sonic.ping();
 			action();
-		} else {
-			suppress();
 		}
 		return false;
 	}

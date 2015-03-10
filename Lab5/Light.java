@@ -34,7 +34,7 @@ public class Light extends Thread implements Behavior{
 		}
 	}
 
-	public Boolean takeControl(){
+	public boolean takeControl(){
 		while(light.readValue() > 35){
 			action();
 		}
