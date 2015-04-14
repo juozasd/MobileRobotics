@@ -2,7 +2,7 @@
 import CarpetSensor.java;
 import Vacuum.java;
 import Sonar.java;
-
+import Movement.java;
 
 import lejos.*;
 
@@ -12,11 +12,11 @@ public class Main{
 
    public static void main(String [] args) {
       (new CarpetSensor()).start();
-      Behavior b1 = new DriveForward();
-      Behavior b2 = new HitWall();
-      Behavior [] bArray = {b1, b2};
-      Arbitrator arby = new Arbitrator(bArray);
-      arby.start();
+      Movement a = new Movement();
+      a.arcRight(40,45);
+      a.forward(20);
+      a.turnLeft(90);
+      
    }
 
 	Button.ESCAPE.addButtonListener(new ButtonListener() {

@@ -38,8 +38,8 @@ public class Sonar extends Thread implements Behavior{
 	}
 
 	public boolean takeControl(){
+		sonic.ping();
 		while(sonic.getDistance() > 20){
-			sonic.ping();
 			action();
 		}
 		return false;
