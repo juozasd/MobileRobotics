@@ -27,8 +27,7 @@ public class Touch implements Behaviour {
                 
 		// make room to arc
                 movement.backward(10);
-		float arc = (2 * 3.14 * 10);
+		float arc = (3.14 * 10);
 		// do an arc around the object
 		movement.arRight(arc, 180);
-        }
-~                                                   
+        }                                            
