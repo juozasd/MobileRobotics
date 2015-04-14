@@ -14,8 +14,8 @@ public class Movement {
    // The pilot is initialised by the class
    double  speed = 4;
    double  turnSpeed = 30;
-   private double wheelDiameter = 2.25f;
-   private double trackWidth = 5.5f;
+   private double wheelDiameter = 2.1f;
+   private double trackWidth = 4.4f;
    public  DifferentialPilot pilot = new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
 
 
