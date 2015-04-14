@@ -16,8 +16,8 @@ public class Sonar extends Thread implements Behavior{
 	boolean state = true;
 	public Sonar(){
 		sonic = new UltrasonicSensor(SensorPort.S1);
-	}	
-	
+	}
+
 	public void run() {
 		while (state == true) {
 			state =	takeControl();
@@ -25,7 +25,8 @@ public class Sonar extends Thread implements Behavior{
 	}
 
 	public void action() {
-	
+		Movement movement = new Movement();
+		movement.turnright(90f);
 	}
 
 	public void suppress(){
@@ -33,7 +34,7 @@ public class Sonar extends Thread implements Behavior{
 		Thread.sleep(2000);
 		}
 		catch( InterruptedException e){
-			
+
 		}
 	}
 
