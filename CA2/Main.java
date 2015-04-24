@@ -15,7 +15,7 @@ import lejos.robotics.subsumption.Behavior;
 public class Main{
     UltrasonicSensor sonic = new UltrasonicSensor(SensorPort.S1);
     Movement m = new Movement();
-    m.forward(1);
+    
     float distX = 0f, distY = 0f;
 
     public static void main(String [] args) {
@@ -32,19 +32,20 @@ public class Main{
     });
 
     Movement a = new Movement();
-
+    float startDist = m.getDistanceTraveled();
     while(sonic.getDistance() > 25){
       sonic.ping();
       m.forward(10);
-      distX += 6;
     }
+    distX = m.getDistanceTraveled() - startDist;
     m.turnLeft(90);
 
+    startDist = m.getDistanceTraveled();
     while(sonic.getDistance() > 25){
       sonic.ping();
       m.forward(10);
-      distY += 6;
     }
+    distY = m.getDistanceTraveled() - startDist;
     m.turnLeft(90);
 
     ////Return To start
@@ -55,12 +56,10 @@ public class Main{
     ////
 
 
-
-
-    Behavior b1 = new CarpetSensor();
+    Behavior carpet = new CarpetSensor();
     Behavior b2 = new Touch();
-    Behavior wallDetection = new Sonar();
-    Behavior [] bArray = {b1, b2};
+
+    Behavior [] bArray = {carpet, b2};
     Arbitrator arby = new Arbitrator(bArray);
     arby.start();
 
