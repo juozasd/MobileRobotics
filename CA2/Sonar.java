@@ -1,6 +1,6 @@
 /*
-Team 1 
-Name      Student Number 
+Team 1
+Name      Student Number
 - James Byrne   C11393906
 - Juozas Dapkunas   C12432832
 */
@@ -32,9 +32,8 @@ public class Sonar extends Thread implements Behavior{
 	}
 
 	public void action() {
-		Movement movement = new Movement();
-		movement.turnright(90f);
-		movement.interSonar(); 
+		MyMap map = new MyMap();
+ 		map.sonar += 1;
 	}
 
 	public void suppress(){
