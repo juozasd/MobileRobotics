@@ -1,3 +1,10 @@
+/*
+Team 1 
+Name      Student Number 
+- James Byrne   C11393906
+- Juozas Dapkunas   C12432832
+*/
+
 import lejos.nxt.LCD;
 import java.io.*;
 import lejos.nxt.Motor;

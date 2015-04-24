@@ -1,3 +1,10 @@
+/*
+Team 1 
+Name      Student Number 
+- James Byrne   C11393906
+- Juozas Dapkunas   C12432832
+*/
+
 import lejos.nxt.*;
 import java.io.*;
 import lejos.robotics.subsumption.*;
@@ -26,7 +33,7 @@ public class Sonar extends Thread implements Behavior{
 
 	public void action() {
 		Movement movement = new Movement();
-		movement.turnright(90f);
+		movement.turnRight(90f);
 	}
 
 	public void suppress(){

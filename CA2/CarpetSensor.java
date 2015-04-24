@@ -1,3 +1,10 @@
+/*
+Team 1 
+Name      Student Number 
+- James Byrne   C11393906
+- Juozas Dapkunas   C12432832
+*/
+
 import lejos.nxt.*;
 import java.io.*;
 import lejos.nxt.Sound;
@@ -10,7 +17,7 @@ public class CarpetSensor extends Thread implements Behavior{
 	boolean state = true;
 
 	public CarpetSensor(){
-		LCD.drawString("Vacuming", 0, 0);
+		LCD.drawString("Vacuuming", 0, 0);
 		light = new LightSensor(SensorPort.S3);
 	}
 
@@ -25,16 +32,20 @@ public class CarpetSensor extends Thread implements Behavior{
 	public void action() {
 		LCD.clear();
 		LCD.drawString("Carpet", 0, 0);
-		Sound.twoBeeps();
+		//Sound.twoBeeps();
+		Motor.A.forward();
+		Motor.C.forward();
 	}
 
 	public void suppress(){
 		LCD.clear();
 		LCD.drawString("Vacuming", 0, 0);
+		Motor.A.stop();
+		Motor.C.stop();
 	}
 
 	public boolean takeControl(){
-		while(light.readValue() > 35){
+		while(light.readValue() > 45){
 			action();
 		}
 		return false;
