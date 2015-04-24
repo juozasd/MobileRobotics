@@ -13,7 +13,7 @@ public class MyMap extends Thread {
     private int myX;
     private int myY;
     private int END_MAP=4;
-    int[] matrice;
+    static int[] matrice;
     public static Movement m;
 
     public static int sonar=0;
@@ -37,6 +37,7 @@ public class MyMap extends Thread {
                 // if yes then add the distance traveled to
                 // determine the size of the square
                 matrice[check] = m.getDistanceTraveled();
+                m.turnRight(90);
             }
             // Until 4 90 deg turns have been made keep going forward
             else if(sonar<=END_MAP) {
@@ -53,9 +54,11 @@ public class MyMap extends Thread {
         float curr_Y = 0;
 
         while(curr_Y < Y_LIMIT){
-            m.forward(X_LIMIT-8);
-            m.arcRight(4, 360)
-            curr_Y += 4;
+            m.forward(X_LIMIT-7);
+            m.arcRight(3.5, 180)
+            curr_Y += 3.5;
         }
     }
+
+
 }
