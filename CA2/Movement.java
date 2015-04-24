@@ -19,7 +19,7 @@ import lejos.robotics.subsumption.*;
 public class Movement {
 
    // The pilot is initialised by the class
-   double  speed = 4;
+   double  speed = 6;
    double  turnSpeed = 30;
    private double wheelDiameter = 2.1f;
    private double trackWidth = 4.4f;
@@ -83,12 +83,12 @@ public class Movement {
 
    // Makes the Robot Arc in a direction
    public void arcLeft(float radius, float deg){
-      pilot.arc(size,deg);
+      pilot.arc(radius,deg);
       while(pilot.isMoving()){}
    }
    public void arcRight(float radius, float deg){
       deg = deg * -1;
-      pilot.arc(size,deg);
+      pilot.arc(radius,deg);
       while(pilot.isMoving()){}
    }
 
