@@ -15,8 +15,10 @@ public class CarpetSensor extends Thread implements Behavior{
 
 	LightSensor light;
 	boolean state = true;
+	Movement m = new Movement();
 
 	public CarpetSensor(){
+		LCD.clear();
 		LCD.drawString("Vacuuming", 0, 0);
 		light = new LightSensor(SensorPort.S3);
 	}
@@ -32,16 +34,14 @@ public class CarpetSensor extends Thread implements Behavior{
 	public void action() {
 		LCD.clear();
 		LCD.drawString("Carpet", 0, 0);
-		//Sound.twoBeeps();
-		Motor.A.forward();
-		Motor.C.forward();
+		Sound.twoBeeps();
+		m.forward(10);
 	}
 
 	public void suppress(){
 		LCD.clear();
 		LCD.drawString("Vacuming", 0, 0);
-		Motor.A.stop();
-		Motor.C.stop();
+		m.stop();
 	}
 
 	public boolean takeControl(){
