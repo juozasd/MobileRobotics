@@ -13,14 +13,9 @@ import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
 public class Main{
-    UltrasonicSensor sonic = new UltrasonicSensor(SensorPort.S1);
-    Movement m = new Movement();
     
-    float distX = 0f, distY = 0f;
-
     public static void main(String [] args) {
       
-
       Button.ESCAPE.addButtonListener(new ButtonListener() {
       public void buttonPressed(Button b) {
          System.exit(0);
@@ -31,10 +26,11 @@ public class Main{
       }
     });
 
-    Behavior carpet = new CarpetSensor();
-    Behavior b2 = new Touch();
 
-    Behavior [] bArray = {carpet, b2};
+    Behavior carpet = new CarpetSensor();
+    Behavior collision = new Touch();
+    Behavior vacuum = new Sonar();
+    Behavior [] bArray = {collision, carpet, vacuum};
     Arbitrator arby = new Arbitrator(bArray);
     arby.start();
 

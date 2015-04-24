@@ -30,10 +30,10 @@ public class Touch extends Thread implements Behavior {
         public void action()
         {
             Movement movement = new Movement();        
-		// make room to arc
+		    // make room to arc
             movement.backward(10);
 		    float arc = (3.14f * 10f);
-		// do an arc around the object
+		    // do an arc around the object
 		    movement.arcRight(arc, 45);
         }                                            
 }

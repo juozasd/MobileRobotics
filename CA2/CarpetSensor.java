@@ -16,13 +16,17 @@ public class CarpetSensor extends Thread implements Behavior{
 	LightSensor light;
 	boolean state = true;
 	Movement m = new Movement();
-
+	int ground = 45;
 	public CarpetSensor(){
 		LCD.clear();
 		LCD.drawString("Vacuuming", 0, 0);
 		light = new LightSensor(SensorPort.S3);
+		ground = light.readValue();
 	}
 
+	public void setGround(int val){
+		ground = val;
+	}
 
 	public void run() {
 		while (state) {
@@ -45,7 +49,7 @@ public class CarpetSensor extends Thread implements Behavior{
 	}
 
 	public boolean takeControl(){
-		while(light.readValue() > 45){
+		while(light.readValue() > (ground + 3) || light.readValue() < (ground - 3) ){
 			action();
 		}
 		return false;

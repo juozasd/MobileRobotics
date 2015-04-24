@@ -6,7 +6,6 @@ Name      Student Number
 */
 
 import lejos.nxt.*;
-import Movement;
 
 public class MyMap extends Thread {
 
@@ -55,7 +54,7 @@ public class MyMap extends Thread {
 
         while(curr_Y < Y_LIMIT){
             m.forward(X_LIMIT-7);
-            m.arcRight(3.5, 180)
+            m.arcRight(3.5f, 180);
             curr_Y += 3.5;
         }
     }
