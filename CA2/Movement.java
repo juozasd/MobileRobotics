@@ -1,6 +1,6 @@
 /*
-Team 1 
-Name      Student Number 
+Team 1
+Name      Student Number
 - James Byrne   C11393906
 - Juozas Dapkunas   C12432832
 */
@@ -19,18 +19,17 @@ import lejos.robotics.subsumption.*;
 public class Movement {
 
    // The pilot is initialised by the class
-   double  speed = 4;
+   double  speed = 6;
    double  turnSpeed = 30;
    private double wheelDiameter = 2.1f;
    private double trackWidth = 4.4f;
    public  DifferentialPilot pilot = new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
 
 
-   // Creates an instance of movement 
+   // Creates an instance of movement
    public Movement(){
 	  pilot.setTravelSpeed(speed);
-	  pilot.setRotateSpeed(turnSpeed);
-
+	  pilot.setRotateSpeed(turnSpeed)
    }
 
    public void setWheelDiameter(double wd){
@@ -51,6 +50,13 @@ public class Movement {
    }
    public void setRotateSpeed(float rs){
       pilot.setRotateSpeed(rs);
+   }
+
+   public float getDistanceTraveled(){
+       float i=0;
+       i = pilot.getTravelDistance();
+       resetTachoCount();
+       return i;
    }
 
    //Movement options
@@ -76,13 +82,13 @@ public class Movement {
    }
 
    // Makes the Robot Arc in a direction
-   public void arcLeft(float size, float deg){
-      pilot.arc(size,deg);
+   public void arcLeft(float radius, float deg){
+      pilot.arc(radius,deg);
       while(pilot.isMoving()){}
    }
-   public void arcRight(float size, float deg){
+   public void arcRight(float radius, float deg){
       deg = deg * -1;
-      pilot.arc(size,deg);
+      pilot.arc(radius,deg);
       while(pilot.isMoving()){}
    }
 
