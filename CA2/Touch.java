@@ -1,4 +1,4 @@
-mport lejos.nxt.*;
+import lejos.nxt.*;
 import lejos.robotics.subsumption.*;
 import Movement;
 
@@ -8,26 +8,25 @@ public class Touch implements Behaviour {
         private boolean suppreseed = false;
 
         public touch(SensorPort port){
-                sonar = new UltrasonicSensor(port);
+            sonar = new UltrasonicSensor(port);
         }
 
         public boolean takeControl() {
-                return touch.isPressed();
+            return touch.isPressed();
         }
 
         public void suppress()
         {
-                Motor.A.stop();
-                Motor.C.stop();
+            Motor.A.stop();
+            Motor.C.stop();
         }
-        
+
         public void action()
         {
-                Movement movement = new Movement();
-                
-		// make room to arc
-                movement.backward(10);
-		float arc = (3.14 * 10);
-		// do an arc around the object
-		movement.arRight(arc, 180);
-        }                                            
+            Movement movement = new Movement();
+	    // make room to arc
+            movement.backward(10);
+		    float arc = (3.14 * 10);
+	    // do an arc around the object
+            movement.arRight(arc, 180);
+        }

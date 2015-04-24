@@ -19,11 +19,10 @@ public class Movement {
    public  DifferentialPilot pilot = new DifferentialPilot(wheelDiameter, trackWidth, Motor.A, Motor.C);
 
 
-   // Creates an instance of movement 
+   // Creates an instance of movement
    public Movement(){
 	  pilot.setTravelSpeed(speed);
-	  pilot.setRotateSpeed(turnSpeed);
-
+	  pilot.setRotateSpeed(turnSpeed)
    }
 
    public void setWheelDiameter(double wd){
@@ -44,6 +43,13 @@ public class Movement {
    }
    public void setRotateSpeed(float rs){
       pilot.setRotateSpeed(rs);
+   }
+
+   public float getDistanceTraveled(){
+       float i=0;
+       i = pilot.getTravelDistance();
+       resetTachoCount();
+       return i;
    }
 
    //Movement options

@@ -27,6 +27,7 @@ public class Sonar extends Thread implements Behavior{
 	public void action() {
 		Movement movement = new Movement();
 		movement.turnright(90f);
+		movement.interSonar(); 
 	}
 
 	public void suppress(){
