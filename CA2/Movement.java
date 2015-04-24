@@ -1,6 +1,6 @@
 /*
-Team 1 
-Name      Student Number 
+Team 1
+Name      Student Number
 - James Byrne   C11393906
 - Juozas Dapkunas   C12432832
 */
@@ -82,11 +82,11 @@ public class Movement {
    }
 
    // Makes the Robot Arc in a direction
-   public void arcLeft(float size, float deg){
+   public void arcLeft(float radius, float deg){
       pilot.arc(size,deg);
       while(pilot.isMoving()){}
    }
-   public void arcRight(float size, float deg){
+   public void arcRight(float radius, float deg){
       deg = deg * -1;
       pilot.arc(size,deg);
       while(pilot.isMoving()){}
