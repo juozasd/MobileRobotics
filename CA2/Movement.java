@@ -29,7 +29,7 @@ public class Movement {
    // Creates an instance of movement
    public Movement(){
 	  pilot.setTravelSpeed(speed);
-	  pilot.setRotateSpeed(turnSpeed)
+	  pilot.setRotateSpeed(turnSpeed);
    }
 
    public void setWheelDiameter(double wd){
@@ -54,8 +54,8 @@ public class Movement {
 
    public float getDistanceTraveled(){
        float i=0;
-       i = pilot.getTravelDistance();
-       resetTachoCount();
+       i = pilot.getMovementIncrement();
+       pilot.reset();
        return i;
    }
 

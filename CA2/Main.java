@@ -31,31 +31,6 @@ public class Main{
       }
     });
 
-    Movement a = new Movement();
-    float startDist = m.getDistanceTraveled();
-    while(sonic.getDistance() > 25){
-      sonic.ping();
-      m.forward(10);
-    }
-    distX = m.getDistanceTraveled() - startDist;
-    m.turnLeft(90);
-
-    startDist = m.getDistanceTraveled();
-    while(sonic.getDistance() > 25){
-      sonic.ping();
-      m.forward(10);
-    }
-    distY = m.getDistanceTraveled() - startDist;
-    m.turnLeft(90);
-
-    ////Return To start
-    m.forward(distX);
-    m.turnLeft(90);
-    m.forward(distY);
-    m.turnLeft(90);
-    ////
-
-
     Behavior carpet = new CarpetSensor();
     Behavior b2 = new Touch();
 
